@@ -24,32 +24,31 @@ class Musician:
     def play_solo(self):
         pass
 
-class Band(Musician):
-    def __init__(self, name,members):
-        self.name=name
-        self.members=members
+class Band:
+  instances=[]
+  def __init__(self, name,members):
+    self.name=name
+    self.members=members
+    Band.instances.append(self)
              
-    def play_solos(self):
-        solos_list=[]
-        for i in self.members:
-            solos_list.append(i.play_solo())
-        return solos_list
-    def __str__(self):
+  def play_solos(self):
+    solos_list=[]
+    for i in self.members:
+      solos_list.append(i.play_solo())
+    return solos_list
+  def __str__(self):
 
-        return f"We are {self.name} and we are music band"
+    return f"We are {self.name} and we are music band"
 
-    def __repr__(self):
+  def __repr__(self):
 
-        return f"Band instance. Name = {self.name}"
+    return f"Band instance. Name = {self.name}"
 
-    def to_list(self):
-        pass
+  @classmethod # Class Method
+  def to_list(cls):
 
-        
-
-
-    
-    
+    return cls.instances
+  
     
 class Guitarist(Musician):
     def __str__(self):

@@ -1,10 +1,6 @@
 from abc import abstractmethod
 
-
     
-
-
-
 
 class Musician:
     members = []
